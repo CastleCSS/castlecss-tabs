@@ -1,0 +1,19 @@
+{
+  "name": "castlecss-tabs",
+  "version": "1.0.0",
+  "description": "CastleCSS tabs (Alpha)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CastleCSS/castlecss-tabs.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CastleCSS/castlecss-tabs/issues"
+  },
+  "homepage": "https://github.com/CastleCSS/castlecss-tabs#readme"
+}
