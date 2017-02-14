@@ -1,0 +1,32 @@
+.tabs-header {
+    @include ulreset();
+    @extend .cf;
+    border: 1px solid #ccc;
+
+    .tabs-title {
+        float: left;
+
+        > a {
+            display: block;
+            padding: 1.2rem 2.5rem;
+            text-decoration: none;
+        }
+
+        &.is-active {
+            background: #ccc;
+        }
+    }
+}
+
+.tabs-content {
+    border: 1px solid #ccc;
+    border-top: 0;
+
+    .tab-panel {
+        display: none;
+
+        &.is-active {
+            display: block;
+        }
+    }
+}
