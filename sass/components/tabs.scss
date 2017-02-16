@@ -1,32 +1,75 @@
+
+
 .tabs-header {
     @include ulreset();
     @extend .cf;
     border: 1px solid #ccc;
 
+    //make tabs-header full width
+}
+.tabs-header-full {
+    display: table;
+    width: 100%;
+
     .tabs-title {
-        float: left;
-
-        > a {
-            display: block;
-            padding: 1.2rem 2.5rem;
-            text-decoration: none;
-        }
-
-        &.is-active {
-            background: #ccc;
-        }
+        display: table-cell;
+        float: none;
+        text-align: center;
     }
 }
+.tabs-title {
+    float: left;
 
+    > a {
+        display: block;
+        padding: 1.2rem 2.5rem;
+        text-decoration: none;
+    }
+
+    &.is-active {
+        background: #ccc;
+    }
+}
 .tabs-content {
     border: 1px solid #ccc;
     border-top: 0;
+}
+.tab-panel {
+    display: none;
+    padding: 1.2rem 2.5rem;
 
-    .tab-panel {
+    &.is-active {
+        display: block;
+    }
+}
+.tabs-accordion {
+
+    .tabs-title {
+        display: block;
+        float: none;
+        text-align: left;
+    }
+    .tabs-content{
         display: none;
+    }
+}
 
-        &.is-active {
+
+@media only screen and (min-width: $b4) {
+
+    .tabs-accordion {
+        
+        .tabs-title {
+            float: left;
+        }
+
+        .tabs-content {
             display: block;
         }
     }
+
 }
+
+
+
+
