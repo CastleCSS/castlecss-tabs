@@ -1,9 +1,12 @@
 
+.tabs {
+    border: 1px solid $theme01;
+}
 
 .tabs-header {
     @include ulreset();
     @extend .cf;
-    border: 1px solid #ccc;
+    background: $color03;
 
     //make tabs-header full width
 }
@@ -17,31 +20,6 @@
         text-align: center;
     }
 }
-.tabs-title {
-    float: left;
-
-    > a {
-        display: block;
-        padding: 1.2rem 2.5rem;
-        text-decoration: none;
-    }
-
-    &.is-active {
-        background: #ccc;
-    }
-}
-.tabs-content {
-    border: 1px solid #ccc;
-    border-top: 0;
-}
-.tab-panel {
-    display: none;
-    padding: 1.2rem 2.5rem;
-
-    &.is-active {
-        display: block;
-    }
-}
 .tabs-accordion {
 
     .tabs-title {
@@ -53,21 +31,61 @@
         display: none;
     }
 }
+.tabs-title {
+    float: left;
+
+    > a {
+        display: block;
+        padding: $padding-default $padding-default*2;
+        text-decoration: none;
+
+        &:hover, &:focus {
+            background: $theme04;
+        }
+    }
+
+    &.is-active {
+
+        > a {
+            background: $theme01;
+            color: $color01;    
+        }
+    }
+}
+.tabs-content {
+    border-top: 1px solid $theme01;
+}
+.tab-panel {
+    display: none;
+    padding: $padding-default $padding-default*2;
+    background: $color01;
+
+    &.is-active {
+        display: block;
+    }
+}
 
 
 @media only screen and (min-width: $b4) {
 
     .tabs-accordion {
-        
+
         .tabs-title {
             float: left;
         }
-
         .tabs-content {
             display: block;
         }
-    }
 
+        .tabs-header-full {
+
+            .tabs-title {
+                display: table-cell;
+                text-align: center;
+                float: none;
+            }
+        }
+    }
 }
 
 

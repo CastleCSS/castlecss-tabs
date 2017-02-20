@@ -2,7 +2,6 @@ var path = require('path');
 var webpack = require('webpack');
 
 var entries = {
-	'SwitchTabs': "./js/SwitchTabs",
 	'Tabs': "./js/Tabs"
 };
 

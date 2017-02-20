@@ -9,12 +9,52 @@
 
 'use strict';
 
-var SwitchTabs =  require('./SwitchTabs');
+var $ = require('jquery');
+var Tabs = function(selector) {
 
-var Tabs = function(selectors) {
-	selectors = selectors || {};
+	//function to place the active tab-panel to the correct tab-header
+	var toggleTabAccordion = function(tab,container) {
 
-	SwitchTabs(selectors.switchTabs);
+		var activeTabPanel = $('[data-castlecss-tab-panel = '+tab+']', container);
+		var tabPlaceholder = $('[data-castlecss-tab-placeholder]', container);
+
+		tabPlaceholder.html(activeTabPanel.clone());
+		
+		$('[data-castlecss-tab-header = '+tab+']', container).after(tabPlaceholder);
+	}
+
+	var wrapTabs = function(selector) {
+
+		$(selector).each(function() {
+
+			var $this = $(this);
+			var container = $(this).closest('[data-castlecss-tab-container]');
+
+			if($(selector).is('.tabs-accordion')) {
+				$this.find('.tabs-header').prepend('<li class="hide-b4" data-castlecss-tab-placeholder></li>');
+			};
+
+
+			$this.on('click', '[data-castlecss-tab-header] > a', function(e){
+				
+				e.preventDefault();
+
+				var tab = $(this).parent().data('castlecss-tab-header');
+				var container = $(this).closest('[data-castlecss-tab-container]');
+
+				if(container.is('.tabs-accordion') && !$(this).parent().hasClass('is-active')) {
+					toggleTabAccordion (tab,container);
+				}
+
+				$('[data-castlecss-tab-header].is-active , [data-castlecss-tab-panel].is-active', container).removeClass('is-active');	
+				$('[data-castlecss-tab-header = '+tab+'], [data-castlecss-tab-panel = '+tab+']', container).addClass('is-active');
+
+			});
+		});
+	}
+
+	var _selector = selector || '[data-castlecss-tab-container]';
+	wrapTabs(_selector);
 };
 
 module.exports = Tabs;
