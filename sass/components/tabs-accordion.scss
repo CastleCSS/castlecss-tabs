@@ -1,0 +1,80 @@
+/*start mixin for accordions*/
+@mixin tab-accordion() {
+
+    .tabs-title {
+        display: block;
+        float: none;
+        text-align: left;
+
+        &.is-active .fa {
+            transform: scaleY(-1);
+            line-height: 1.5;
+        }
+    }
+    .tab-link { 
+        margin-left: 0;
+        border-radius: 0;
+        .fa {
+            display: inline-block;
+        }
+    }
+    .tabs-header {
+        border-bottom: 1px solid $theme01;
+
+    }
+    .tab-link, .tab-panel {
+        border: solid $theme01;
+        border-width: 1px 1px 0 1px;
+    }
+    .tabs-content {
+
+        .tab-panel {
+            display: none;
+        }
+    }
+    .tab-placeholder {
+        display: block;
+    }
+}
+/*end mixin for accordions*/
+
+[class^='tabs-accordion'], 
+[class*=' tabs-accordion'] {
+    .tab-link .fa {
+        display: none;
+    }
+    .tab-placeholder {
+        display: none;
+    }
+}
+.tabs-accordion {
+    @include tab-accordion();
+}
+
+
+@media only screen and (max-width: $b6 - 1) {
+    .tabs-accordion-b6 {
+        @include tab-accordion();
+    }
+}
+
+@media only screen and (max-width: $b5 - 1) {
+    .tabs-accordion-b5 {
+        @include tab-accordion();
+    }
+}
+@media only screen and (max-width: $b4 - 1) {
+    .tabs-accordion-b4 {
+        @include tab-accordion();
+    }
+}
+@media only screen and (max-width: $b3 - 1) {
+    .tabs-accordion-b3 {
+        @include tab-accordion();
+    }
+}
+@media only screen and (max-width: $b2 - 1) {
+    .tabs-accordion-b2 {
+        @include tab-accordion();
+    }
+ }

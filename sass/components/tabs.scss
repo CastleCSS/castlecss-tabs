@@ -1,16 +1,12 @@
 
-.tabs {
-    border: 1px solid $theme01;
-}
-
 .tabs-header {
-    @include ulreset();
+     margin: 0; padding: 0; list-style: none;
+    @include ulreset() !optional;
     @extend .cf;
-    background: $color03;
-
-    //make tabs-header full width
 }
 .tabs-header-full {
+    @extend .tabs-header;
+
     display: table;
     width: 100%;
 
@@ -20,43 +16,44 @@
         text-align: center;
     }
 }
-.tabs-accordion {
 
-    .tabs-title {
-        display: block;
-        float: none;
-        text-align: left;
-    }
-    .tabs-content{
-        display: none;
-    }
-}
 .tabs-title {
     float: left;
 
-    > a {
-        display: block;
-        padding: $padding-default $padding-default*2;
-        text-decoration: none;
-
-        &:hover, &:focus {
-            background: $theme04;
-        }
-    }
-
     &.is-active {
 
-        > a {
+        .tab-link {
+            border-color: $theme01;
             background: $theme01;
             color: $color01;    
         }
     }
+    &:first-child {
+
+        .tab-link {
+            margin-left: 0;
+        }            
+    }
 }
-.tabs-content {
-    border-top: 1px solid $theme01;
+    
+.tab-link {
+    display: block;
+    margin-left: $margin-default/2;
+    border-radius: $radius*2 $radius*2 0 0;
+    border: $color03 solid;
+    border-width: 1px 1px 0 1px;
+    padding: $padding-default $padding-default*2;
+    background: $color03;
+    text-decoration: none;
+
+    &:hover, &:focus {
+        border-color: $theme01;
+    }
 }
+
 .tab-panel {
     display: none;
+    border: 1px solid $theme01;
     padding: $padding-default $padding-default*2;
     background: $color01;
 
@@ -64,30 +61,3 @@
         display: block;
     }
 }
-
-
-@media only screen and (min-width: $b4) {
-
-    .tabs-accordion {
-
-        .tabs-title {
-            float: left;
-        }
-        .tabs-content {
-            display: block;
-        }
-
-        .tabs-header-full {
-
-            .tabs-title {
-                display: table-cell;
-                text-align: center;
-                float: none;
-            }
-        }
-    }
-}
-
-
-
-
