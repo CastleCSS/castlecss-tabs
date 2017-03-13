@@ -1,8 +1,17 @@
 
 .tabs-header {
-     margin: 0; padding: 0; list-style: none;
-    @include ulreset() !optional;
-    @extend .cf;
+    /*if mixin ulreset exists, use it*/
+    @if mixin-exists(ulreset) {
+        @include ulreset();
+    }
+    @else {
+        margin: 0; padding: 0; list-style: none;
+    }
+    
+    /*if extend .cf not exists, use this :before and :after. if extend exists, use the extend*/
+    &:before, &:after {content:""; display:table;}
+    &:after {clear:both;}
+    @extend .cf !optional;
 }
 .tabs-header-full {
     @extend .tabs-header;
