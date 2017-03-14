@@ -11,19 +11,20 @@
 
 var $ = require('jquery');
 
-function switchTabMobileAccordion (tabHeader,container) {
+function switchAccordion (tabHeader,container) {
 
 	var activeTabPanel = $('[data-castlecss-tab-panel = '+tabHeader+']', container);
 	var tabPlaceholder = $('[data-castlecss-tab-placeholder]', container);
 
 	tabPlaceholder.html(activeTabPanel.clone());
+	
 	$('[data-castlecss-tab-header = '+tabHeader+']', container).after(tabPlaceholder);
 
 }
 
-function switchTab (tab,mobileAccordion) {
+function switchTab (tab,isAccordion) {
 
-	tab.on('click', '[data-castlecss-tab-header]:not(.is-active) > a', function(e){
+	tab.on('click', '[data-castlecss-tab-header]:not(.is-active) > .tab-link', function(e){
 
 		e.preventDefault();
 
@@ -34,11 +35,29 @@ function switchTab (tab,mobileAccordion) {
 		$('[data-castlecss-tab-header].is-active , [data-castlecss-tab-panel].is-active', container).removeClass('is-active');	
 		$('[data-castlecss-tab-header = '+tabHeader+'], [data-castlecss-tab-panel = '+tabHeader+']', container).addClass('is-active');
 
-		if(mobileAccordion) {
-			switchTabMobileAccordion(tabHeader,container);
+		if(isAccordion) {
+			switchAccordion(tabHeader,container);
 		}
 		
 	});
+}
+
+function setPlaceholderAccordion(tab) {
+
+	var placeholderHTML = '<li class="tab-placeholder" data-castlecss-tab-placeholder></li>';
+
+	if(tab.find('[data-castlecss-tab-header].is-active').length == 0) {
+		tab.find('[data-castlecss-tab-header]:first').before(placeholderHTML);	
+
+	}
+	else {
+		var activeTabHeader = tab.find('[data-castlecss-tab-header].is-active');
+		activeTabHeader.after(placeholderHTML);
+
+		// when there is an active tab, show the accordion
+		var container = activeTabHeader.closest('[data-castlecss-tab-container]');
+		switchAccordion(activeTabHeader.data('castlecss-tab-header'),container);
+	}
 }
 
 function wrapTabs(selector) {
@@ -48,13 +67,13 @@ function wrapTabs(selector) {
 		var tab = $(this);
 
 		// check if class starts with tabs-accordion. if so, present tabs as accordions
-		var mobileAccordion = tab.is('[class*="tabs-accordion"]');
-		if(mobileAccordion) {
+		var isAccordion = tab.is('[class*="tabs-accordion"]');
 
-			tab.find('[data-castlecss-tab-header]:first').after('<li class="tab-placeholder" data-castlecss-tab-placeholder></li>');
+		if(isAccordion) {
+			setPlaceholderAccordion(tab);
 		}
 
-		switchTab(tab, mobileAccordion);
+		switchTab(tab,isAccordion);
 		
 	});
 }
