@@ -12,6 +12,7 @@
     &:before, &:after {content:""; display:table;}
     &:after {clear:both;}
     @extend .cf !optional;
+
 }
 .tabs-header-full {
     @extend .tabs-header;
@@ -32,9 +33,13 @@
     &.is-active {
 
         .tab-link {
-            border-color: $theme01;
-            background: $theme01;
-            color: $color01;    
+            border-color: $tab-header-active-border-color;
+            background: $tab-header-active-bg-color;
+            color: $tab-header-active-color;
+
+            &:after {
+                
+            }
         }
     }
     &:first-child {
@@ -48,11 +53,11 @@
 .tab-link {
     display: block;
     margin-left: $margin-default/2;
-    border-radius: $radius*2 $radius*2 0 0;
-    border: $color03 solid;
+    border-radius: $tab-header-radius $tab-header-radius 0 0;
+    border: $tab-header-border-color solid;
     border-width: 1px 1px 0 1px;
     padding: $padding-default $padding-default*2;
-    background: $color03;
+    background: $tab-header-bg-color;
     text-decoration: none;
 
     &:hover, &:focus {
@@ -62,9 +67,9 @@
 
 .tab-panel {
     display: none;
-    border: 1px solid $theme01;
+    border: 1px solid $tab-panel-active-border-color;
     padding: $padding-default $padding-default*2;
-    background: $color01;
+    background: $tab-panel-bg-color;
 
     &.is-active {
         display: block;

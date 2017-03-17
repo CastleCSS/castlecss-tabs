@@ -4,13 +4,12 @@
 	Example variables file: http://castlecss.com/variables.html
 */
 
-
-$b1: 320px;
-$b2: 480px;
-$b3: 768px;
-$b4: 1024px;
-$b5: 1280px;
-$b6: 1600px;
+$b1: 320px !default;
+$b2: 480px !default;
+$b3: 768px !default;
+$b4: 1024px !default;
+$b5: 1280px !default;
+$b6: 1600px !default;
 
 $margin-default: 12px !default;
 $padding-default: 12px !default;
@@ -19,3 +18,16 @@ $theme01:	#1B94BF !default;
 $color01: 	#fff !default;
 $color03: 	#eeeeee !default;
 $radius:	3px !default;
+
+/*tab-specific variables*/
+$tab-header-radius: $radius*2 !default;
+$tab-header-border-color: $color03 !default;
+$tab-header-bg-color: $color03 !default;
+
+$tab-header-active-border-color: $theme01 !default;
+$tab-header-active-bg-color: $theme01 !default;
+$tab-header-active-color: $color01 !default;
+
+$tab-panel-bg-color: $color01 !default;
+
+$tab-panel-active-border-color: $theme01 !default;

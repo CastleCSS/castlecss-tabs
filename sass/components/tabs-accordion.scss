@@ -20,11 +20,11 @@
         }
     }
     .tabs-header {
-        border-bottom: 1px solid $theme01;
+        border-bottom: 1px solid $tab-header-active-border-color;
 
     }
     .tab-link, .tab-panel {
-        border: solid $theme01;
+        border: solid $tab-header-active-border-color;
         border-width: 1px 1px 0 1px;
     }
     .tabs-content {
