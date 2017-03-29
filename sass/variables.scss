@@ -15,19 +15,25 @@ $margin-default: 12px !default;
 $padding-default: 12px !default;
 
 $theme01:	#1B94BF !default;
+$theme03:	#12637f !default;
 $color01: 	#fff !default;
-$color03: 	#eeeeee !default;
-$radius:	3px !default;
 
 /*tab-specific variables*/
-$tab-header-radius: $radius*2 !default;
-$tab-header-border-color: $color03 !default;
-$tab-header-bg-color: $color03 !default;
 
-$tab-header-active-border-color: $theme01 !default;
-$tab-header-active-bg-color: $theme01 !default;
-$tab-header-active-color: $color01 !default;
+$tab-theme01: $theme01;
+$tab-theme02: $color01;
 
-$tab-panel-bg-color: $color01 !default;
+$tab-header-bg-color: 			$tab-theme01 !default;
+$tab-header-bg-color-hover: 	lighten($tab-theme01,30%) !default;
+$tab-header-color: 				$tab-theme02 !default;
+$tab-header-active-bg-color: 	$tab-theme02 !default;
+$tab-header-active-color: 		$tab-theme01 !default;
 
-$tab-panel-active-border-color: $theme01 !default;
+$tab-acc-header-active-bg-color:lighten($tab-theme01,30%) !default;
+$tab-acc-header-active-color: 	$theme03 !default;
+
+$tab-panel-bg-color: 			$tab-theme02 !default;
+$tab-panel-active-border-color:	$tab-theme01 !default;
+
+$tab-header-radius: 0 !default;
+$tab-transition: .1s all ease-in-out !default;

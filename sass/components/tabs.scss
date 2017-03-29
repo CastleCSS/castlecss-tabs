@@ -13,32 +13,34 @@
     &:after {clear:both;}
     @extend .cf !optional;
 
+    background-color: $tab-header-bg-color;
+    padding: $padding-default/2 $padding-default/2 0 $padding-default/2; 
 }
+
 .tabs-header-full {
     @extend .tabs-header;
 
     display: table;
     width: 100%;
 
-    .tabs-title {
+    .tab-title {
         display: table-cell;
         float: none;
         text-align: center;
     }
 }
 
-.tabs-title {
+.tab-title {
     float: left;
 
     &.is-active {
 
         .tab-link {
-            border-color: $tab-header-active-border-color;
             background: $tab-header-active-bg-color;
             color: $tab-header-active-color;
 
-            &:after {
-                
+            &:focus {
+                outline: none;
             }
         }
     }
@@ -52,22 +54,22 @@
     
 .tab-link {
     display: block;
-    margin-left: $margin-default/2;
     border-radius: $tab-header-radius $tab-header-radius 0 0;
-    border: $tab-header-border-color solid;
-    border-width: 1px 1px 0 1px;
     padding: $padding-default $padding-default*2;
-    background: $tab-header-bg-color;
+    background-color: $tab-header-bg-color;
     text-decoration: none;
+    color: $tab-header-color;
+    transition: $tab-transition;
 
     &:hover, &:focus {
-        border-color: $theme01;
+        background-color: $tab-header-bg-color-hover;
     }
 }
 
 .tab-panel {
     display: none;
-    border: 1px solid $tab-panel-active-border-color;
+    border: solid $tab-panel-active-border-color;
+    border-width: 0 1px 1px 1px;
     padding: $padding-default $padding-default*2;
     background: $tab-panel-bg-color;
 

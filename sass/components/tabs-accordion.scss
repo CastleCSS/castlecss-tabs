@@ -1,38 +1,54 @@
 /*start mixin for accordions*/
 @mixin tab-accordion() {
 
-    .tabs-title {
+    .tabs-header, .tabs-header-full {
+        background-color: transparent;
+    }
+
+    .tab-title {
         display: block;
         float: none;
         text-align: left;
 
-        &.is-active .fa {
-            transform: scaleY(-1);
-            line-height: $line-height-default;
+        &.is-active {
+
+            .tab-link {
+                background-color: $tab-acc-header-active-bg-color;
+                color: $tab-acc-header-active-color;
+            }
+
+            .fa {
+                transform: scaleY(-1);
+                line-height: $line-height-default;
+            }
         }
     }
+
     .tab-link { 
-        margin-left: 0;
+        margin-top: 1px;
         border-radius: 0;
         
         .fa {
             display: inline-block;
         }
     }
-    .tabs-header {
-        border-bottom: 1px solid $tab-header-active-border-color;
 
+    .tabs-header {
+        padding: 0;
     }
-    .tab-link, .tab-panel {
-        border: solid $tab-header-active-border-color;
-        border-width: 1px 1px 0 1px;
+
+    .tab-panel {
+        margin-bottom: $margin-default;
+        border-color: $tab-acc-header-active-bg-color;
     }
+
     .tabs-content {
 
         .tab-panel {
             display: none;
         }
     }
+
     .tab-placeholder {
         display: block;
     }
@@ -41,8 +57,10 @@
 
 [class^='tabs-accordion'], 
 [class*=' tabs-accordion'] {
+
     .tab-link .fa {
         display: none;
+        transition: $tab-transition;
     }
     .tab-placeholder {
         display: none;

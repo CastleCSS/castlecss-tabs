@@ -24,7 +24,7 @@ function switchAccordion (tabHeader,container) {
 
 function switchTab (tab,isAccordion) {
 
-	tab.on('click', '[data-castlecss-tab-header]:not(.is-active) > .tab-link', function(e){
+	tab.on('click', '[data-castlecss-tab-header] > .tab-link', function(e){
 
 		e.preventDefault();
 
@@ -32,13 +32,15 @@ function switchTab (tab,isAccordion) {
 		var tabHeader = tabLink.closest('[data-castlecss-tab-header]').data('castlecss-tab-header');
 		var container = tabLink.closest('[data-castlecss-tab-container]');
 
-		$('[data-castlecss-tab-header].is-active , [data-castlecss-tab-panel].is-active', container).removeClass('is-active');	
-		$('[data-castlecss-tab-header = '+tabHeader+'], [data-castlecss-tab-panel = '+tabHeader+']', container).addClass('is-active');
+		if(!tabLink.closest('[data-castlecss-tab-header]').hasClass('is-active')) {
 
-		if(isAccordion) {
-			switchAccordion(tabHeader,container);
+			$('[data-castlecss-tab-header].is-active , [data-castlecss-tab-panel].is-active', container).removeClass('is-active');	
+			$('[data-castlecss-tab-header = '+tabHeader+'], [data-castlecss-tab-panel = '+tabHeader+']', container).addClass('is-active');
+
+			if(isAccordion) {
+				switchAccordion(tabHeader,container);
+			}
 		}
-		
 	});
 }
 
