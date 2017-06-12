@@ -34,12 +34,16 @@ function switchTab (tab,isAccordion) {
 
 		if(!tabLink.closest('[data-castlecss-tab-header]').hasClass('is-active')) {
 
-			$('[data-castlecss-tab-header].is-active , [data-castlecss-tab-panel].is-active', container).removeClass('is-active');	
+			$('[data-castlecss-tab-header].is-active , [data-castlecss-tab-panel].is-active', container).removeClass('is-active is-folded');	
 			$('[data-castlecss-tab-header = '+tabHeader+'], [data-castlecss-tab-panel = '+tabHeader+']', container).addClass('is-active');
 
 			if(isAccordion) {
 				switchAccordion(tabHeader,container);
 			}
+		}
+		else {
+			//collapse when accordion
+			$('[data-castlecss-tab-header].is-active , [data-castlecss-tab-panel].is-active', container).toggleClass('is-folded');	
 		}
 	});
 }

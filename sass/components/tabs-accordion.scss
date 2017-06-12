@@ -10,7 +10,11 @@
         float: none;
         text-align: left;
 
-        &.is-active {
+        .tab-link {
+            background-color: $tab-header-bg-color;
+            color: $tab-header-color;
+        }
+        &.is-active:not(.is-folded) {
 
             .tab-link {
                 background-color: $tab-acc-header-active-bg-color;
@@ -20,6 +24,9 @@
             .fa {
                 transform: scaleY(-1);
                 line-height: $line-height-default;
+            }
+            + .tab-placeholder {
+                display: block;
             }
         }
     }
@@ -49,9 +56,7 @@
         }
     }
 
-    .tab-placeholder {
-        display: block;
-    }
+    
 }
 /*end mixin for accordions*/
 
