@@ -12,9 +12,9 @@
     &:before, &:after {content:""; display:table;}
     &:after {clear:both;}
     @extend .cf !optional;
-
-    background-color: $tab-header-bg-color;
-    padding: $padding-default/2 $padding-default/2 0 $padding-default/2; 
+    position: relative;
+    margin-bottom: -1px;
+    padding: 0; 
 }
 
 .tabs-header-full {
@@ -38,6 +38,8 @@
         .tab-link {
             background: $tab-header-active-bg-color;
             color: $tab-header-active-color;
+            border-color: $tab-panel-active-border-color;
+            border-bottom-color:$color01;
 
             &:focus {
                 outline: none;
@@ -56,10 +58,10 @@
     display: block;
     border-radius: $tab-header-radius $tab-header-radius 0 0;
     padding: $padding-default $padding-default*2;
-    background-color: $tab-header-bg-color;
     text-decoration: none;
     color: $tab-header-color;
     transition: $tab-transition;
+    border: 1px solid transparent;
 
     &:hover, &:focus {
         background-color: $tab-header-bg-color-hover;
@@ -68,8 +70,8 @@
 
 .tab-panel {
     display: none;
-    border: solid $tab-panel-active-border-color;
-    border-width: 0 1px 1px 1px;
+    border: 1px solid $tab-panel-active-border-color;
+    border-radius: 0 0 $tab-header-radius $tab-header-radius; 
     padding: $padding-default $padding-default*2;
     background: $tab-panel-bg-color;
 

@@ -23,17 +23,17 @@ $color01: 	#fff !default;
 $tab-theme01: $theme01;
 $tab-theme02: $color01;
 
-$tab-header-bg-color: 			$tab-theme01 !default;
+$tab-header-bg-color: 			$tab-theme02 !default;
 $tab-header-bg-color-hover: 	lighten($tab-theme01,30%) !default;
-$tab-header-color: 				$tab-theme02 !default;
+$tab-header-color: 				$tab-theme01 !default;
 $tab-header-active-bg-color: 	$tab-theme02 !default;
 $tab-header-active-color: 		$tab-theme01 !default;
 
-$tab-acc-header-active-bg-color:darken($tab-theme01,10%) !default;
+$tab-acc-header-active-bg-color:$tab-theme01 !default;
 $tab-acc-header-active-color: 	$color01 !default;
 
 $tab-panel-bg-color: 			$tab-theme02 !default;
 $tab-panel-active-border-color:	$tab-theme01 !default;
 
-$tab-header-radius: 0 !default;
+$tab-header-radius: 3px !default;
 $tab-transition: .1s all ease-in-out !default;

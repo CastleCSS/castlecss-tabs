@@ -9,10 +9,15 @@
         display: block;
         float: none;
         text-align: left;
+        margin-bottom: $margin-default;
 
         .tab-link {
             background-color: $tab-header-bg-color;
-            color: $tab-header-color;
+            border-bottom-color: $tab-panel-active-border-color;
+
+            &:hover, &:focus {
+                background-color: $tab-header-bg-color-hover;
+            }
         }
         &.is-active:not(.is-folded) {
 
@@ -27,6 +32,7 @@
             }
             + .tab-placeholder {
                 display: block;
+                margin-top: 0-$margin-default;
             }
         }
     }
@@ -34,6 +40,7 @@
     .tab-link { 
         margin-top: 1px;
         border-radius: 0;
+        border: 1px solid $tab-header-color;
         
         .fa {
             display: inline-block;
