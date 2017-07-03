@@ -1,0 +1,81 @@
+
+.tabs-header {
+    /*if mixin ulreset exists, use it*/
+    @if mixin-exists(ulreset) {
+        @include ulreset();
+    }
+    @else {
+        margin: 0; padding: 0; list-style: none;
+    }
+    
+    /*if extend .cf not exists, use this :before and :after. if extend exists, use the extend*/
+    &:before, &:after {content:""; display:table;}
+    &:after {clear:both;}
+    @extend .cf !optional;
+    position: relative;
+    margin-bottom: -1px;
+    padding: 0; 
+}
+
+.tabs-header-full {
+    @extend .tabs-header;
+
+    display: table;
+    width: 100%;
+
+    .tab-title {
+        display: table-cell;
+        float: none;
+        text-align: center;
+    }
+}
+
+.tab-title {
+    float: left;
+
+    &.is-active {
+
+        .tab-link {
+            background: $tab-header-active-bg-color;
+            color: $tab-header-active-color;
+            border-color: $tab-panel-active-border-color;
+            border-bottom-color: transparent;
+
+            &:focus {
+                outline: none;
+            }
+        }
+    }
+    &:first-child {
+
+        .tab-link {
+            margin-left: 0;
+        }            
+    }
+}
+    
+.tab-link {
+    display: block;
+    border-radius: $tab-header-radius $tab-header-radius 0 0;
+    padding: $padding-default $padding-default*2;
+    text-decoration: none;
+    color: $tab-header-color;
+    transition: $tab-transition;
+    border: 1px solid transparent;
+
+    &:hover, &:focus {
+        background-color: $tab-header-bg-color-hover;
+    }
+}
+
+.tab-panel {
+    display: none;
+    border: 1px solid $tab-panel-active-border-color;
+    border-radius: 0 0 $tab-header-radius $tab-header-radius; 
+    padding: $padding-default $padding-default*2;
+    background: $tab-panel-bg-color;
+
+    &.is-active {
+        display: block;
+    }
+}

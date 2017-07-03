@@ -1,0 +1,39 @@
+/*
+	Castlecss-tabs variables
+	Fallback for missing castlecss-core variables
+	Example variables file: http://castlecss.com/variables.html
+*/
+
+$b1: 320px !default;
+$b2: 480px !default;
+$b3: 768px !default;
+$b4: 1024px !default;
+$b5: 1280px !default;
+$b6: 1600px !default;
+
+$margin-default: 12px !default;
+$padding-default: 12px !default;
+
+$theme01:	#1B94BF !default;
+$theme03:	#12637f !default;
+$color01: 	#fff !default;
+
+/*tab-specific variables*/
+
+$tab-theme01: $theme01;
+$tab-theme02: $color01;
+
+$tab-header-bg-color: 			$tab-theme02 !default;
+$tab-header-bg-color-hover: 	lighten($tab-theme01,30%) !default;
+$tab-header-color: 				$tab-theme01 !default;
+$tab-header-active-bg-color: 	$tab-theme02 !default;
+$tab-header-active-color: 		$tab-theme01 !default;
+
+$tab-acc-header-active-bg-color:$tab-theme01 !default;
+$tab-acc-header-active-color: 	$color01 !default;
+
+$tab-panel-bg-color: 			$tab-theme02 !default;
+$tab-panel-active-border-color:	$tab-theme01 !default;
+
+$tab-header-radius: 3px !default;
+$tab-transition: .1s all ease-in-out !default;

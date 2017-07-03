@@ -1,0 +1,111 @@
+/*start mixin for accordions*/
+@mixin tab-accordion() {
+
+    .tabs-header, .tabs-header-full {
+        background-color: transparent;
+    }
+
+    .tab-title {
+        display: block;
+        float: none;
+        text-align: left;
+        margin-bottom: $margin-default;
+
+        .tab-link {
+            background-color: $tab-header-bg-color;
+            border-bottom-color: $tab-panel-active-border-color;
+
+            &:hover, &:focus {
+                background-color: $tab-header-bg-color-hover;
+            }
+        }
+        &.is-active:not(.is-folded) {
+
+            .tab-link {
+                background-color: $tab-acc-header-active-bg-color;
+                color: $tab-acc-header-active-color;
+            }
+
+            .fa {
+                transform: scaleY(-1);
+                line-height: $line-height-default;
+            }
+            + .tab-placeholder {
+                display: block;
+                margin-top: 0-$margin-default;
+            }
+        }
+    }
+
+    .tab-link { 
+        margin-top: 1px;
+        border-radius: 0;
+        border: 1px solid $tab-header-color;
+        
+        .fa {
+            display: inline-block;
+        }
+    }
+
+    .tabs-header {
+        padding: 0;
+    }
+
+    .tab-panel {
+        margin-bottom: $margin-default;
+        border-color: $tab-acc-header-active-bg-color;
+    }
+
+    .tabs-content {
+
+        .tab-panel {
+            display: none;
+        }
+    }
+
+    
+}
+/*end mixin for accordions*/
+
+[class^='tabs-accordion'], 
+[class*=' tabs-accordion'] {
+
+    .tab-link .fa {
+        display: none;
+        transition: $tab-transition;
+    }
+    .tab-placeholder {
+        display: none;
+    }
+}
+
+
+.tabs-accordion {
+    @include tab-accordion();
+}
+
+@media only screen and (max-width: $b6 - 1) {
+    .tabs-accordion-b6 {
+        @include tab-accordion();
+    }
+}
+@media only screen and (max-width: $b5 - 1) {
+    .tabs-accordion-b5 {
+        @include tab-accordion();
+    }
+}
+@media only screen and (max-width: $b4 - 1) {
+    .tabs-accordion-b4 {
+        @include tab-accordion();
+    }
+}
+@media only screen and (max-width: $b3 - 1) {
+    .tabs-accordion-b3 {
+        @include tab-accordion();
+    }
+}
+@media only screen and (max-width: $b2 - 1) {
+    .tabs-accordion-b2 {
+        @include tab-accordion();
+    }
+ }
