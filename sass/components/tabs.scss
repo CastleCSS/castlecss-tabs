@@ -39,7 +39,7 @@
             background: $tab-header-active-bg-color;
             color: $tab-header-active-color;
             border-color: $tab-panel-active-border-color;
-            border-bottom-color:$color01;
+            border-bottom-color: transparent;
 
             &:focus {
                 outline: none;
