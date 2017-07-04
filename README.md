@@ -26,7 +26,7 @@ Because of the unique update-able setup of CastleCSS you need a seperate variabl
 - Copy the example from the [documentation](http://castlecss.com/tabs.html) into your own variables.scss and include it into your main.scss
 
 ## Dependencies
-Because CastleCSS Forms uses jQuery as dependency, the distributions contain jQuery. There is however a possibility to make use of the jQuery version of your choice, by making use of the no.vendors distributions.
+Because CastleCSS Tabs uses jQuery as dependency, the distributions contain jQuery. There is however a possibility to make use of the jQuery version of your choice, by making use of the no.vendors distributions.
 The no.vendor distributions work, as long as the jQuery variable is defined in the global scope.
 
 ## Basic structure
@@ -58,76 +58,16 @@ The basis structure for your website should look similar like this:
 ```
 
 ## Usage
-There are a couple of different ways to make use of the CastleCSS Tabs library.
 
-### Include as seperate modules
-To make use of the modules seperately, use the following scripts:
 
-```
-<script type="text/javascript" src="/path/to/scripts/Vendors.bundle.js"></script>
-<!--- The modules of your choice --->
-<script type="text/javascript" src="/path/to/scripts/Select.min.js"></script>
-<script type="text/javascript" src="/path/to/scripts/FileInput.min.js"></script>
-<script type="text/javascript" src="/path/to/scripts/State.min.js"></script>
-
-<script type="text/javascript">
-	/* For example */
-	CastleCSS_Forms_Select();
-</script>
-```
-
-### Include
-To make use of all the modules, simply include the following scripts:
+### Including CastleCSS Tabs
+To make use of CastleCSS Tabs, simply include the code below to scripts.js
 
 ```
-<script type="text/javascript" src="/path/to/scripts/Vendors.bundle.js"></script>
-<script type="text/javascript" src="/path/to/scripts/Forms.min.js"></script>
-<script type="text/javascript">
-	CastleCSS_Forms_Forms();
-</script>
-```
-
-### Require
-It is possible to require CastleCSS Forms into your project.
-
-```
-var castlecss_forms = require('castlecss-forms');
-
-/* Use all modules */
-castlecss_forms.forms();
-
-/* Use seperate modules */
-castlecss_forms.select();
-castlecss_forms.fileinput();
-```
-
-### Selectors
-The CastleCSS Forms library by default searches for the following elements:
-
-```
-...
-<!--- A wrapping element around the input --->
-<div data-castlecss-field> 
-	<input type="text"></input>
-</div>
-...
-
-<!--- The select element --->
-<select data-castlecss-select>
-...
-</select>
-```
-
-### Configuration
-By default, the CastleCSS Forms library uses the CastleCSS selectors.
-It is possible to configure selectors of your own choice. Just add the following configuration:
-
-```
-CastleCSS_Forms_Forms({
-	fileInput: '.yourOwnSelector',
-	select: '.yourOwnSelector'
+var Tabs = require('castlecss-tabs').Tabs;
+$(function()
+{
+	Tabs();
 });
-
-CastleCSS_Forms_Select('.yourOwnSelector');
-CastleCSS_Forms_FileInput('.yourOwnSelector');
 ```
+
