@@ -59,8 +59,26 @@ The basis structure for your website should look similar like this:
 
 ## Usage
 
+### Including CastleCSS Tabs into your stylesheet
+Your main.scss should have a setup similair to this (included in the CastleCSS Boilerplate):
+```
+/*  core variable files */
+@import "path/to/castlecss-core/sass/variables";
 
-### Including CastleCSS Tabs
+/*  Your own variables so they overwrite the core */
+@import "variables";
+
+/*  rest of core files */
+@import "node_modules/castlecss-core/sass/main";
+@import "node_modules/castlecss-tabs/sass/main";
+
+ 
+/*  Include your own files below this line
+    --------------------------------------
+*/
+```
+
+### Including CastleCSS Tabs into your javascript
 To make use of CastleCSS Tabs, simply include the code below to scripts.js
 
 ```
